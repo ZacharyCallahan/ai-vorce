@@ -1,4 +1,6 @@
 import AppStateProvider from "./AppStateContext";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 import "./globals.css";
 import { Rubik } from "next/font/google";
 
@@ -19,8 +21,12 @@ export default function RootLayout({ children }) {
                     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
             </head>
-        <body className={`${rubik.className} bg-background`}>
-                <AppStateProvider>{children}</AppStateProvider>
+            <body className={`${rubik.className} bg-background`}>
+                <AppStateProvider>
+                    <Nav />
+                    {children}
+                    <Footer />
+                </AppStateProvider>
             </body>
         </html>
     );

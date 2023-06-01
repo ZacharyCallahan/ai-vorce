@@ -17,7 +17,7 @@ module.exports = {
         "secondary": "#b95fa7",
         "accent": "#ff77e5",
         "background": "#f2f1f9",
-        "text-color": "#000",
+        "text-color": "#0a0812",
       },
       gridTemplateColumns: {
         'fluid': 'repeat(auto-fit, minmax(15rem, 2fr))',
