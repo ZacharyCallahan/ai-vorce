@@ -1,4 +1,3 @@
-
 import Next from "./Next";
 import Prev from "./Prev";
 
@@ -12,7 +11,6 @@ const ThreapistQuestion = ({
     currentQuestion,
     questionsLength,
 }) => {
-
 
     return (
         <div className="space-y-6 ">
