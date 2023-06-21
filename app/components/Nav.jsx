@@ -1,12 +1,12 @@
 import Link from "next/link";
-import Logo from "./ui/Logo";
+import Logo from "./Logo";
 import LoginButton from "./buttons/LoginButton";
 import LogoutButton from "./buttons/LogoutButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../utils/auth";
 
 const Nav = async () => {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession(authOptions);
     const user = session?.user;
     return (
         <div className="fixed w-full bg-transparent backdrop-blur-sm">

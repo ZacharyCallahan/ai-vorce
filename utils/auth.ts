@@ -1,10 +1,11 @@
 import { compare } from "bcryptjs";
+import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { prisma } from "./prisma";
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
     pages: {
         signIn: "/login",
     },
@@ -13,12 +14,12 @@ export const authOptions = {
     },
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID ,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET ,
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }),
         GitHubProvider({
-            clientId: process.env.GITHUB_ID ,
-            clientSecret: process.env.GITHUB_SECRET ,
+            clientId: process.env.GITHUB_ID as string,
+            clientSecret: process.env.GITHUB_SECRET as string,
         }),
         CredentialsProvider({
             name: "Sign in",
@@ -81,7 +82,7 @@ export const authOptions = {
                 // Because the user object doesn't have an id property, but we know it does.
                 // So we need to cast it as any to get around that.
 
-                const userAsAny = user;
+                const userAsAny = user as unknown as any;
                 return {
                     ...token,
                     id: userAsAny.id,

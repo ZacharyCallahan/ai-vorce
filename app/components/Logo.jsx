@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../../public/logo.png"
+import logo from "../../public/logo.png"
 const Logo = ({width, height}) => {
     return (
         <div className="flex items-center gap-2">
