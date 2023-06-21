@@ -1,6 +1,13 @@
 import Link from "next/link";
 import Logo from "./ui/Logo";
-const Nav = () => {
+import LoginButton from "./buttons/LoginButton";
+import LogoutButton from "./buttons/LogoutButton";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../utils/auth";
+
+const Nav = async () => {
+    const session = await getServerSession(authOptions)
+    const user = session?.user;
     return (
         <div className="fixed w-full bg-transparent backdrop-blur-sm">
             <nav className="flex justify-between items-center m-auto w-10/12 h-20">
@@ -15,9 +22,7 @@ const Nav = () => {
                     <li>
                         <Link href="/get/started">Get Started</Link>
                     </li>
-                    <li>
-                        <Link href="/Login">Login</Link>
-                    </li>
+                    <li>{user ? <LogoutButton /> : <LoginButton />}</li>
                 </ul>
             </nav>
         </div>

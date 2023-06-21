@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import "./globals.css";
 import { Rubik } from "next/font/google";
+import NextAuthProvider from "./components/NextAuthProvider"
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
@@ -22,11 +23,13 @@ export default function RootLayout({ children }) {
                 />
             </head>
             <body className={`${rubik.className} bg-background`}>
-                <AppStateProvider>
-                    <Nav />
-                    {children}
-                    <Footer />
-                </AppStateProvider>
+                <NextAuthProvider>
+                    <AppStateProvider>
+                        <Nav />
+                        {children}
+                        <Footer />
+                    </AppStateProvider>
+                </NextAuthProvider>
             </body>
         </html>
     );
