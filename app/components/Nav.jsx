@@ -17,6 +17,9 @@ const Nav = async () => {
                         <Link href="/">Home</Link>
                     </li>
                     <li>
+                        <Link href="/AI-Chat">AI-Chat</Link>
+                    </li>
+                    <li>
                         <Link href="/about">About</Link>
                     </li>
                     <li>

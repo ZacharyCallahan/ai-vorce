@@ -17,4 +17,23 @@ model User {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  chat      Chat[]
+}
+
+model Chat {
+  id       String     @id @default(uuid())
+  title    String
+  messages Messages[] 
+  user     User       @relation(fields: [userId], references: [id])
+  userId   String
+}
+
+model Messages {
+  id          String   @id @default(uuid())
+  userMessage String
+  botMessage  String
+  chat        Chat     @relation(fields: [chatId], references: [id])
+  chatId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

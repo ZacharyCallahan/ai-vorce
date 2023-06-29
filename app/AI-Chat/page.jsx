@@ -1,9 +1,8 @@
 import ChatComponent from "../components/ChatComponent";
 const page = () => {
     return (
-        <div className="pt-20">
-            <h1>My Chat App</h1>
-            <ChatComponent />
+        <div className="w-3/4 ">
+            <h1 className="pb-6">Ai-Vorce Chat Bot</h1>
         </div>
     );
 };

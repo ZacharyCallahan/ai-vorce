@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getChatResponse = async (message) => {
-    const maxTokenLength = 10
+    const maxTokenLength = 2
 
     const nonTherapyResponse = "I'm sorry, I can only respond to therapy related questions or topics!."
     
