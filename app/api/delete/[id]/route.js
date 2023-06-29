@@ -6,6 +6,12 @@ export async function DELETE(req, { params }) {
     try {
         const id = params.id
 
+        await prisma.messages.deleteMany({
+            where: {
+                chatId: id,
+            }
+        })
+
         const res = await prisma.chat.delete({
             where: {
                 id,

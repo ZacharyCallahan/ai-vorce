@@ -2,18 +2,39 @@
 import React, { useState } from "react";
 import getChatResponse from "../../utils/chatGPTApi";
 import axios from "axios";
+const validateForm = (message) => {
+    const errors = {};
+    if (message.length < 1) {
+        errors.message = "Message cannot be blank";
+    }
+
+    return errors;
+};
 
 const ChatComponent = ({ id, chat }) => {
     const [chatHistory, setChatHistory] = useState(chat.messages);
+    const [errors, setErrors] = useState({});
 
     const handleUserMessage = async (message) => {
+        const formErrors = validateForm(message);
+        if (Object.keys(formErrors).length > 0) {
+            setErrors(formErrors);
+            return;
+        }
         const response = await getChatResponse(message);
 
-        setChatHistory([...chatHistory, { userMessage: message, botMessage: response }]);
+        setChatHistory([
+            ...chatHistory,
+            { userMessage: message, botMessage: response },
+        ]);
         await axios
-            .post(`/api/create/message/${id}`, { user: message, bot: response })
+            .post(`/api/create/message/${id}`, {
+                user: message,
+                bot: response,
+            })
             .then((response) => {
                 console.log(response);
+                setErrors({});
             })
             .catch((error) => {
                 console.log(error);
@@ -52,6 +73,11 @@ const ChatComponent = ({ id, chat }) => {
                     className="border-2 rounded-md shadow-md px-4 border-slate-300">
                     Send
                 </button>
+                {errors.message && (
+                    <p className="bg-red-100 text-red-500 rounded-md p-2 mt-5 w-fit">
+                        {errors.message}
+                    </p>
+                )}
             </form>
         </div>
     );

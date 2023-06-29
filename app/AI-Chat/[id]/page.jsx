@@ -4,8 +4,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../../utils/auth";
 
 const page = async ({ params }) => {
-    const session = await getServerSession(authOptions);
-    const email = session.user.email;
     const id = params.id;
     const chat = await axios
         .get(`http://localhost:3000/api/get/${id}`)
@@ -13,7 +11,6 @@ const page = async ({ params }) => {
         .catch((err) => {});
     return (
         <div className="pt-20">
-            
             <ChatComponent chat={chat} id={id} />
         </div>
     );
