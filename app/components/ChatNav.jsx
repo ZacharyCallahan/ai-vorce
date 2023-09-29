@@ -41,34 +41,30 @@ const ChatNav = () => {
 
     return (
         <div className="w-1/4 pl-6 space-y-6">
-            <form onSubmit={handleSubmit} className="flex gap-3">
-                <label htmlFor="title" placeholder="Chat title...">
-                    Title:
-                </label>
-                <input
-                    name="title"
-                    type="text"
-                    placeholder="Chat title..."
-                    className="border-2 border-slate-300 rounded-md shadow-md px-2 w-72"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <button
-                    type="submit"
-                    className="rounded-md border-2 border-slate-300 px-2 ">
-                    Create
-                </button>
-                {errors.title && (
-                    <p className="bg-red-100 text-red-500 rounded-md p-2 mt-5 w-fit">
-                        {errors.title}
-                    </p>
-                )}
-            </form>
+  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <label htmlFor="title" className="text-lg font-semibold text-white">
+      Chat Title
+    </label>
+    <input
+      name="title"
+      type="text"
+      placeholder="Enter chat title..."
+      className="border border-gray-300 rounded-lg shadow-md py-2 px-3 focus:outline-none focus:border-blue-400"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
+    />
+    {errors.title && (
+      <p className="text-red-500">{errors.title}</p>
+    )}
+    <button
+      type="submit"
+      className="bg-primary hover:bg-blue-600 text-white py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+    >
+      Create
+    </button>
+  </form>
+</div>
 
-            <ul className="space-y-6">
-                <ChatNavItem chats={chats} setChats={setChats} />
-            </ul>
-        </div>
     );
 };
 
