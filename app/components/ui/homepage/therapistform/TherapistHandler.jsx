@@ -6,6 +6,10 @@ const TherapistHandler = ({ questions }) => {
     // state value to keep track of the index of the current question
     const [currentQuestion, setCurrentQuestion] = useState(0); 
     //TODO: update it using search params instead of state to make it server side rendering
+
+
+
+    
     return (
         <div>
 
