@@ -1,5 +1,7 @@
+'use client'
 import Next from "./Next";
 import Prev from "./Prev";
+import { useState } from "react";
 
 const ThreapistQuestion = ({
     question,
@@ -11,19 +13,56 @@ const ThreapistQuestion = ({
     currentQuestion,
     questionsLength,
 }) => {
+    const [answers, setAnswers] = useState([]); // state value to keep track of the answers
+
+    const handleAnswer = (answer) => {
+        // remove the previous answer for this question
+        const newAnswers = answers.filter((ans) => {
+            return ans.split("-")[0] !== currentQuestion.toString();
+        });
+        // add the new answer to the answers array
+        setAnswers([...newAnswers, `${currentQuestion}-${answer}`]);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(answers);
+    };
 
     return (
         <div className="space-y-6 ">
             {/* // renders the question and answers from the questions array via the values passed down from props (came from the TherapistHandler)  */}
             <h2 className="my-6 font-semibold">{question}</h2>
 
-            <form action="" className="flex flex-col gap-6">
-                <button className="w-fit questions-button">{answerOne}</button>
-                <button className="w-fit questions-button">{answerTwo}</button>
-                <button className="w-fit questions-button">
+            <form onSubmit={handleSubmit} className={`flex flex-col gap-6`}>
+                <button
+                    className={`w-fit questions-button ${
+                        answers.includes(`${currentQuestion}-${answerOne}`) ? "bg-green-500" : "bg-accent"
+                    }`}
+                    onClick={() => handleAnswer(answerOne)}>
+                    {answerOne}
+                </button>
+                <button
+                    className={`w-fit questions-button ${
+                        answers.includes(`${currentQuestion}-${answerTwo}`) ? "bg-green-500" : "bg-accent"
+                    }`}
+                    onClick={() => handleAnswer(answerTwo)}>
+                    {answerTwo}
+                </button>
+                <button
+                    className={`w-fit questions-button ${
+                        answers.includes(`${currentQuestion}-${answerThree}`) ? "bg-green-500" : "bg-accent"
+                    }`}
+                    onClick={() => handleAnswer(answerThree)}>
                     {answerThree}
                 </button>
-                <button className="w-fit questions-button">{answerFour}</button>
+                <button
+                    className={`w-fit questions-button ${
+                        answers.includes(`${currentQuestion}-${answerFour}`) ? "bg-green-500" : "bg-accent"
+                    }`}
+                    onClick={() => handleAnswer(answerFour)}>
+                    {answerFour}
+                </button>
             </form>
             <div className="flex justify-between">
                 {/* Passing down the functions to the buttons call them when the buttons are clicked */}
