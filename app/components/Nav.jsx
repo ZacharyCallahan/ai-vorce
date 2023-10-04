@@ -6,8 +6,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../utils/auth";
 
 const Nav = async () => {
-    const session = await getServerSession(authOptions);
-    const user = session?.user;
+    const session = await getServerSession();
+    const user = session?.user ?? null;
     return (
         <div className="fixed w-full bg-transparent backdrop-blur-sm">
             <nav className="flex justify-between items-center m-auto w-10/12 h-20">

@@ -5,19 +5,12 @@ const TherapistForm = () => {
     const questions = [
         //array of object
         {
-            question: "How long were/have you and your spouse been together?", //object with question and answers
-            answerOne: "Less than 1 year",
-            answerTwo: "1-5 years",
-            answerThree: "5-10 years",
-            answerFour: "10+ years",
+            question: "How long were/have you and your spouse been married?",
+            answers: ["Less than 1 year", "1-5 years", "5-10 years", "10+ years"],
         },
         {
-            //array of object
-            question: "How would you explain how you feel about your current situation", //object with question and answers
-            answerOne: "Sad",
-            answerTwo: "Angry",
-            answerThree: "Confused",
-            answerFour: "Happy",
+            question: "How would you explain how you feel about your current situation",
+            answers: ["Sad", "Angry", "Confused", "Happy", "I dont know"],
         },
     ];
 
