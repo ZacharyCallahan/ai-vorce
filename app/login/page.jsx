@@ -58,6 +58,7 @@ const page = () => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormValues({ ...formValues, [name]: value });
+        console.log(formValues)
     };
     return (
         <form onSubmit={onSubmit} className="pt-20">
