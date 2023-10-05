@@ -7,11 +7,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Slider = () => {
     return (
         <div className="w-full">
-            <Carousel autoPlay infiniteLoop showStatus = {false}>
+            <Carousel autoPlay infiniteLoop showStatus = {false} showThumbs={false}>
                 <div className="mb-20">
                     <h1>Convenient and affordable therapy with BetterHelp.</h1>
                     <div className="w-20">
-                    <Logo width={1000} height={1000} />
+                    
                     </div>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id

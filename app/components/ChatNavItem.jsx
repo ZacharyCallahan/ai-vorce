@@ -8,7 +8,7 @@ const ChatNavItem = ({ chats, setChats }) => {
             .get("/api/get")
             .then((response) => {
                 setChats(response.data.chat);
-                console.log(response.data.chat);
+                response.data.chat;
             })
             .catch((err) => {
                 console.log(err);
@@ -20,7 +20,7 @@ const ChatNavItem = ({ chats, setChats }) => {
             .delete(`/api/delete/${id}`)
             .then((res) => {
                 setChats(chats.filter((chat) => chat.id != id));
-                console.log(res);
+                res;
             })
             .catch((err) => {
                 console.log(err);

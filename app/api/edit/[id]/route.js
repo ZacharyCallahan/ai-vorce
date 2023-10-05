@@ -6,7 +6,7 @@ export async function PUT(req, { params }) {
     try {
         const id = params.id;
         const body = await req.text();
-        console.log("", id, body);
+        ("", id, body);
 
         const res = await prisma.chat.update({
             where: {
@@ -16,7 +16,7 @@ export async function PUT(req, { params }) {
                 title: body,
             },
         });
-        console.log("", res);
+        ("", res);
         return NextResponse.json(res, { status: 201 });
     } catch (error) {
         return NextResponse.json(

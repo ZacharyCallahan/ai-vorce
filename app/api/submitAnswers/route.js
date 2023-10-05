@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
-import { authOptions } from "../../../../utils/auth";
-import { prisma } from "../../../../utils/prisma";
+import { authOptions } from "../../../utils/auth";
+import { prisma } from "../../../utils/prisma";
 
 export async function POST(req) {
     const session = await getServerSession(authOptions)
@@ -9,12 +9,13 @@ export async function POST(req) {
 
     try {
         const body = await req.json();
-
         const userData = await prisma.user.findUnique({
             where: {
                 email: user,
             },
         });
+
+
 
         const res = await prisma.therapistQuestion.create(
             {
