@@ -14,7 +14,7 @@ export async function GET(req, { params }) {
                 }
             }
         )
-        console.log(res)
+            (res)
         return NextResponse.json(res, { status: 200 });
     } catch (error) {
         return NextResponse.json(

@@ -11,7 +11,7 @@ export async function POST(req, { params }) {
     try {
         const body = await req.text()
         const message = JSON.parse(body)
-        console.log(message)
+            (message)
 
         const res = await prisma.messages.create(
             {

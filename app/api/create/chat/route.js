@@ -18,7 +18,7 @@ export async function POST(req) {
             },
         });
 
-        console.log(userData.id)
+        (userData.id)
         const res = await prisma.chat.create(
             {
                 data: {

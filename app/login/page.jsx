@@ -19,7 +19,6 @@ const page = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log("Running");
         try {
             setLoading(true);
 
@@ -31,7 +30,6 @@ const page = () => {
                 callbackUrl,
             });
 
-            console.log(res);
             if (!res?.error) {
                 //TODO: change this
                 // await axios
@@ -58,7 +56,6 @@ const page = () => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormValues({ ...formValues, [name]: value });
-        console.log(formValues)
     };
     return (
         <form onSubmit={onSubmit} className="pt-20">

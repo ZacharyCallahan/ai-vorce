@@ -1,9 +1,9 @@
 "use client";
 import axios from "axios";
-import ChatNavItem from "./ChatNavItem";
-import { useState } from "react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { getSession } from "next-auth/react";
+import { useState } from "react";
+import ChatNavItem from "./ChatNavItem";
 
 const validateForm = (title) => {
     const errors = {};
@@ -19,9 +19,10 @@ const ChatNav = () => {
     const [chats, setChats] = useState([]);
     const [errors, setErrors] = useState({});
     const router = useRouter();
-    const session = getSession();
-    const user = session?.user;
-
+    const session = useSession();
+    session;
+    const user = session?.data?.user ?? null;
+    user;
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formErrors = validateForm(title);
@@ -34,7 +35,7 @@ const ChatNav = () => {
             .post("/api/create/chat", title)
             .then((res) => {
                 setChats([...chats, res.data]);
-                console.log(res.data);
+                res.data;
                 setErrors({});
                 setTitle("");
                 router.push(`/AI-Chat/${res.data.id}`);

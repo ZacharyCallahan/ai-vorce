@@ -9,7 +9,7 @@ const Next = ({ currentQuestion, setCurrentQuestion, questionsLength }) => {
     return (
         // calls the handleNext function passed down from props when the button is clicked
         <button
-            type="submit"
+            type="button"
             onClick={handleNext}
             className="bg-primary shadow-md text-white font-bold py-2 px-4 rounded">
             Next
