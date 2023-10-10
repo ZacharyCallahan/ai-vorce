@@ -15,7 +15,7 @@ const TherapistForm = () => {
     ];
 
     return (
-        <div className="w-1/2 border-2 border-primary p-6 rounded-lg shadow-lg bg-background">
+        <div className="w-1/3 p-8 rounded shadow-lg bg-background">
             <TherapistHeader />
             <ThreapistHandler questions={questions} />
         </div>

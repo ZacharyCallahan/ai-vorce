@@ -4,7 +4,7 @@ const Logo = ({width, height}) => {
     return (
         <div className="flex items-center gap-2">
             <Image src={logo} alt="AI-vorce Logo" width={width} height={height} />
-            <h1 className="font-bold">AI-vorce</h1>
+            <h1 className="text-3xl font-bold">AI-vorce</h1>
         </div>
     );
 }

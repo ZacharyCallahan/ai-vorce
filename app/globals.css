@@ -5,3 +5,9 @@
 .questions-button {
     @apply  shadow-md text-white font-bold py-2 px-4 rounded;
 }
+
+.animated-bg {
+    background-image: url(../public/AI\ Voice\ Background.svg);
+    background-repeat: no-repeat;
+    
+}
