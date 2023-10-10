@@ -64,42 +64,53 @@ const page = () => {
                     {error.name}
                 </p>
             )}
-            <div className="mb-6">
-                <input
-                    required
-                    type="email"
-                    name="email"
-                    value={formValues.email}
-                    onChange={handleChange}
-                    placeholder="Email address"
-                />
+            <div className="flex flex-col space-y-4">
+                <div>
+                    <input
+                        required
+                        type="email"
+                        name="email"
+                        value={formValues.email}
+                        onChange={handleChange}
+                        placeholder="Email address"
+                        className="w-full px-4 py-2 rounded-lg bg-background text-text-color focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
+                    />
+                </div>
+                <div>
+                    <input
+                        required
+                        type="password"
+                        name="password"
+                        value={formValues.password}
+                        onChange={handleChange}
+                        placeholder="Password"
+                        className="w-full px-4 py-2 rounded-lg bg-background text-text-color focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
+                    />
+                </div>
+                <div>
+                    <button type="submit" disabled={loading} className="w-full px-4 py-2 rounded-lg bg-primary text-background font-semibold hover:bg-secondary focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
+                        {loading ? "loading..." : "Sign In"}
+                    </button>
+                </div>
             </div>
-            <div className="mb-6">
-                <input
-                    required
-                    type="password"
-                    name="password"
-                    value={formValues.password}
-                    onChange={handleChange}
-                    placeholder="Password"
-                />
+            <div className="flex flex-col space-y-4 pt-4">
+                <div className="text-center font-semibold mx-4 mb-0">OR</div>
+                <div>
+                    <a onClick={() => signIn("google", { callbackUrl })} role="button" className="w-full px-4 py-2 rounded-lg bg-primary text-background font-semibold hover:bg-secondary focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
+                        Continue with Google
+                    </a>
+                </div>
+                <div>
+                    <a onClick={() => signIn("github", { callbackUrl })} role="button" className="w-full px-4 py-2 rounded-lg bg-primary text-background font-semibold hover:bg-secondary focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
+                        Continue with GitHub
+                    </a>
+                </div>
             </div>
-            <button type="submit" disabled={loading}>
-                {loading ? "loading..." : "Sign In"}
-            </button>
-
-            <p className="text-center font-semibold mx-4 mb-0">OR</p>
-
-            <a onClick={() => signIn("google", { callbackUrl })} role="button">
-                Continue with Google
-            </a>
-            <a onClick={() => signIn("github", { callbackUrl })} role="button">
-                Continue with GitHub
-            </a>
-
-            <span>
-                Don{"'"}t have an account? <RegisterButton />
-            </span>
+            <div className="text-center pt-4">
+                <span>
+                    Don{"'"}t have an account? <RegisterButton />
+                </span>
+            </div>
         </form>
     );
 };

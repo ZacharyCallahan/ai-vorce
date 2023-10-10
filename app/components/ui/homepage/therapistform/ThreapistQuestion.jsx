@@ -45,21 +45,21 @@ const ThreapistQuestion = ({
     };
 
     return (
-        <div className="space-y-6 ">
-            <h2 className="my-6 font-semibold">{question}</h2>
+        <div className="space-y-6 bg-background text-text-color rounded-b-lg p-6">
+            <h2 className="my-6 font-semibold text-opacity-80">{question}</h2>
 
             <form onSubmit={handleSubmit} className={`flex flex-col gap-6`}>
                 {answers.map((answer, index) => (
                     <button
                         type="button"
                         key={index}
-                        className={`w-fit questions-button ${
+                        className={`w-fit questions-button rounded-lg p-2 ${
                             selectedAnswers.includes(
                                 `${currentQuestion}-${answer}`
                             )
-                                ? "bg-green-500"
+                                ? "bg-primary"
                                 : "bg-accent"
-                        }`}
+                        } text-text-color`}
                         onClick={() => handleAnswer(answer)}>
                         {answer}
                     </button>
@@ -73,7 +73,7 @@ const ThreapistQuestion = ({
                     {questionsLength === currentQuestion + 1 ? (
                         <button
                             type="submit"
-                            className="bg-accent hover:bg-green-600 text-white py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+                            className="bg-accent hover:bg-primary text-white py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
                             Submit
                         </button>
                     ) : (
