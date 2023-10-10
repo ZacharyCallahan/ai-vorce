@@ -1,7 +1,7 @@
 import Card from "./Card";
-import ContentImage1 from "../../../../public/divorce_appPhotos/contentImage1.jpg";
-import ContentImage2 from "../../../../public/divorce_appPhotos/contentImage2.jpg";
-import ContentImage4 from "../../../../public/divorce_appPhotos/contentImage4.jpg";
+import ContentImage1 from "../../../../public/divorce_appPhotos/ContentImage1.jpg";
+import ContentImage2 from "../../../../public/divorce_appPhotos/ContentImage2.jpg";
+import ContentImage4 from "../../../../public/divorce_appPhotos/ContentImage4.jpg";
 
 const Content = () => {
     return (
