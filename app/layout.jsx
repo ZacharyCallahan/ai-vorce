@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
                     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
             </head>
-            <body className={`${rubik.className} bg-neutral-800 text-white`}>
+            <body className={`${rubik.className} `}>
                 <NextAuthProvider>
                     <AppStateProvider>
                         <Nav />

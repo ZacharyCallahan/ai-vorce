@@ -32,7 +32,7 @@ const ChatNavItem = ({ chats, setChats }) => {
                 <div
                     key={idx}
                     className="flex justify-evenly space-y-3 items-center">
-                    <Link href={`/AI-Chat/${chat.id}`}>{chat.title}</Link>
+                    <Link href={`/AI-Chat/${chat.id}`} className="text-text-color">{chat.title}</Link>
                     <Link
                         href={`/edit/${chat.id}`}
                         className="rounded-md border-2 border-slate-300 px-2 ">

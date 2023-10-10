@@ -48,14 +48,14 @@ const ChatNav = () => {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <label
                     htmlFor="title"
-                    className="text-lg font-semibold text-white">
+                    className="text-lg font-semibold text-text-color">
                     Chat Title
                 </label>
                 <input
                     name="title"
                     type="text"
                     placeholder="Enter chat title..."
-                    className="border border-gray-300 rounded-lg shadow-md py-2 px-3 focus:outline-none focus:border-blue-400"
+                    className="border border-gray-300 rounded-lg shadow-md py-2 px-3 focus:outline-none focus:border-accent"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
@@ -70,7 +70,7 @@ const ChatNav = () => {
                 )}
                 <button
                     type="submit"
-                    className="bg-primary hover:bg-blue-600 text-white py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+                    className="bg-primary hover:bg-secondary text-text-color py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-accent">
                     Create
                 </button>
             </form>
