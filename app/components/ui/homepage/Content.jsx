@@ -1,4 +1,3 @@
-import logo from "../../../../public/logo.png";
 import Card from "./Card";
 import ContentImage1 from "../../../../public/divorce_appPhotos/contentImage1.jpg";
 import ContentImage2 from "../../../../public/divorce_appPhotos/contentImage2.jpg";
