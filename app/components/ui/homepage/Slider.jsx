@@ -1,10 +1,7 @@
 'use client'
-import Logo from "../../Logo";
+
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import slider1New from '../../../../public/divorce_appPhotos/slideImage111.jpg';
-import slideImage2 from '../../../../public/divorce_appPhotos/slideImage2.jpg';
-import slideImage3 from '../../../../public/divorce_appPhotos/slideImage3.jpg';
 
 const Slider = () => {
     return (
