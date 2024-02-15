@@ -12,7 +12,7 @@ const validateForm = (message) => {
 };
 
 const ChatComponent = ({ id, chat }) => {
-    const [chatHistory, setChatHistory] = useState(chat.messages);
+    const [chatHistory, setChatHistory] = useState(chat?.messages || []);
     const [errors, setErrors] = useState({});
 
     const handleUserMessage = async (message) => {

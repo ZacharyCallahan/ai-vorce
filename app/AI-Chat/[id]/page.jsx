@@ -7,7 +7,11 @@ const page = async ({ params }) => {
     const id = params.id;
     const chat = await axios
         .get(`http://localhost:3000/api/get/${id}`)
-        .then((res) => res.data)
+        .then((res) => {
+
+            console.log("HELLO WHY NO WORK")
+            console.log(res.data);
+            res.data})
         .catch((err) => {});
     return (
         <div className="pt-20">

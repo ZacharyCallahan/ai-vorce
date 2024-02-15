@@ -48,7 +48,7 @@ const page = () => {
     return (
         <form onSubmit={onSubmit} className="pt-20">
             {error && (
-                <div className="text-center bg-red-300 py-4 mb-6 rounded">
+                <div className="text-center bg-red-300 py-4 mb-6  rounded">
                     {error.message}
                 </div>
             )}
